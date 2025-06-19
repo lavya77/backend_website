@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp import views as appview
+from landing_pageapp import views as appview
 from aboutapp import views
 from academicapp import views as academicview
 
