@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'myapp',
     'corsheaders',
     'aboutapp',
+    'academicapp',
 ]
 
 MIDDLEWARE = [
