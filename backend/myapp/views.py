@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from rest_framework import viewsets
 from .models import QuickAccess , About , Leadership , Banner , GlanceStat ,Campus_gallery ,Excellence_in_Education , Campus_life , Companies_hiring , VirtualExperience
-from .serializers import QuickAccessserializer , AboutSerializer
 from django.http import JsonResponse
 
 def Banner_views(request):

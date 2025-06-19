@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myapp import views as appview
+from aboutapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +30,14 @@ urlpatterns = [
     path('Excellence_education/',appview.Excellence_in_Education_views),
     path('Campus_life/',appview.Campus_life_views),
     path('companies/',appview.Companies_hiring_views),
-    path('virtual_experience/',appview.VirtualExperience_views)
+    path('virtual_experience/',appview.VirtualExperience_views),
+    path('hero-sections/', views.hero_section_view),
+    path('generic-cards/', views.generic_card_view),
+    path('timeline-elements/', views.timeline_element_view),
+    path('tab-sections/', views.tab_section_view),
+    path('image-cards/', views.image_card_view),
+    path('progress-bars/', views.progress_bar_view),
+    path('document-cards/', views.document_card_view),
+    path('global-collaborations/', views.global_collaboration_view),
+    path('governance-cards/', views.governance_card_view),
 ]
