@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Create your models here.pyhto
 
 class HeroSection(models.Model):
     section_name = models.CharField(max_length=100)
