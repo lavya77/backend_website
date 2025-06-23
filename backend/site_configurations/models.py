@@ -22,7 +22,5 @@ class Footer(models.Model):
     icon_class=models.CharField(max_length=255,null=True)
     icon_url=models.URLField()
 
-class footer_links(models.Model):
-    title=models.
 
 

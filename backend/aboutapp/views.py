@@ -1,40 +1,42 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import (
-    HeroSection, GenericCard, TimelineElement, TabSection, ImageCard,
-    ProgressBar, DocumentCard, GlobalCollaborationCard, GovernanceCard
+    HeroSectionAboutUs, AboutUsCard, ChancellorHeroSection, ChancellorMessage,
+    ViceChancellorHeroSection, ViceChancellorMessage, KnowViceChancellor,
+    GovernanceHeroSection, GovernanceCard, PoliciesHeroSection, UniversityPolicy,
+    RTI, MandatoryHeroSection, MandatoryBodySection, RegulatoryCompliance
 )
 
 def hero_section_view(request):
-    queryset = list(HeroSection.objects.all().values())
+    queryset = list(HeroSectionAboutUs.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def generic_card_view(request):
-    queryset = list(GenericCard.objects.all().values())
+    queryset = list(AboutUsCard.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def timeline_element_view(request):
-    queryset = list(TimelineElement.objects.all().values())
+    queryset = list(ChancellorHeroSection.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def tab_section_view(request):
-    queryset = list(TabSection.objects.all().values())
+    queryset = list(ChancellorMessage.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def image_card_view(request):
-    queryset = list(ImageCard.objects.all().values())
+    queryset = list(ViceChancellorHeroSection.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def progress_bar_view(request):
-    queryset = list(ProgressBar.objects.all().values())
+    queryset = list(ViceChancellorMessage.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def document_card_view(request):
-    queryset = list(DocumentCard.objects.all().values())
+    queryset = list(KnowViceChancellor.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def global_collaboration_view(request):
-    queryset = list(GlobalCollaborationCard.objects.all().values())
+    queryset = list(GovernanceHeroSection.objects.all().values())
     return JsonResponse(queryset, safe=False)
 
 def governance_card_view(request):

@@ -1,15 +1,34 @@
 from django.contrib import admin
 from .models import (
-    HeroSection, GenericCard, TimelineElement, TabSection, ImageCard,
-    ProgressBar, DocumentCard, GlobalCollaborationCard, GovernanceCard
+    HeroSectionAboutUs,
+    AboutUsCard,
+    ChancellorHeroSection,
+    ChancellorMessage,
+    ViceChancellorHeroSection,
+    ViceChancellorMessage,
+    KnowViceChancellor,
+    GovernanceHeroSection,
+    GovernanceCard,
+    PoliciesHeroSection,
+    UniversityPolicy,
+    RTI,
+    MandatoryHeroSection,
+    MandatoryBodySection,
+    RegulatoryCompliance,
 )
 
-admin.site.register(HeroSection)
-admin.site.register(GenericCard)
-admin.site.register(TimelineElement)
-admin.site.register(TabSection)
-admin.site.register(ImageCard)
-admin.site.register(ProgressBar)
-admin.site.register(DocumentCard)
-admin.site.register(GlobalCollaborationCard)
+admin.site.register(HeroSectionAboutUs)
+admin.site.register(AboutUsCard)
+admin.site.register(ChancellorHeroSection)
+admin.site.register(ChancellorMessage)
+admin.site.register(ViceChancellorHeroSection)
+admin.site.register(ViceChancellorMessage)
+admin.site.register(KnowViceChancellor)
+admin.site.register(GovernanceHeroSection)
 admin.site.register(GovernanceCard)
+admin.site.register(PoliciesHeroSection)
+admin.site.register(UniversityPolicy)
+admin.site.register(RTI)
+admin.site.register(MandatoryHeroSection)
+admin.site.register(MandatoryBodySection)
+admin.site.register(RegulatoryCompliance)
