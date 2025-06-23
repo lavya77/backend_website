@@ -15,41 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path , include
-from landing_pageapp import views  as appview
-from landing_pageapp import urls as landing_url 
+from django.urls import path
+from landing_pageapp import views as appview
 from aboutapp import views
 from academicapp import views as academicview
- 
 
 urlpatterns = [
-    path("landing/", include("landing_pageapp.urls")),
-    path("academic/", include("academicapp.urls")),
-    path('admin/', admin.site.urls),
-    # path('aboutus/',appview.About_view),
-    # path('banner/',appview.Banner_views),
-    # path('quickaccess/',appview.QuickAccess_views),
-    # path('ledership/',appview.Leadership_view),
-    # path('Glance/',appview.GlanceStat_views),
-    # path('CampusGallery/',appview.Campus_gallery_views),
-    # path('Excellence_education/',appview.Excellence_in_Education_views),
-    # path('Campus_life/',appview.Campus_life_views),
-    # path('companies/',appview.Companies_hiring_views),
-    # path('virtual_experience/',appview.VirtualExperience_views),
-    path('hero-sections/', views.hero_section_view),
-    path('generic-cards/', views.generic_card_view),
-    path('timeline-elements/', views.timeline_element_view),
-    path('tab-sections/', views.tab_section_view),
-    path('image-cards/', views.image_card_view),
-    path('progress-bars/', views.progress_bar_view),
-    path('document-cards/', views.document_card_view),
-    path('global-collaborations/', views.global_collaboration_view),
-    path('governance-cards/', views.governance_card_view),
-     # Academic
-    path('academic/hero/', academicview.academic_hero_section_view),
-    path('academic/events/', academicview.academic_events_view),
-    path('academic/regulations/', academicview.academic_regulations_view),
-    path('academic/stayupdated/', academicview.academic_stay_updated_view),
+    
+    path('hero/', academicview.academic_hero_section_view),
+    path('events/', academicview.academic_events_view),
+    path('regulations/', academicview.academic_regulations_view),
+    path('stayupdated/', academicview.academic_stay_updated_view),
 
     # CBCS
     path('cbcs/hero/', academicview.hero_section_cbcs_view),
