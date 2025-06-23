@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'aboutapp',
     'academicapp',
+    'site_configurations'
 ]
 
 MIDDLEWARE = [
