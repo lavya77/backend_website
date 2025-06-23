@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',
+    'landing_pageapp',
     'corsheaders',
     'aboutapp',
+    'academicapp',
 ]
 
 MIDDLEWARE = [
