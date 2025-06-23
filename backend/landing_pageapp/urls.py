@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from landing_pageapp import views as appview
-from aboutapp import views
+from aboutapp import urls as aboutus_urls
 from academicapp import views as academicview
 
 urlpatterns = [
