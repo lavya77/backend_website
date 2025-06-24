@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'site_confugirations',
     'admissionapp',
     'placementapp',
-    'campuslifeapp'
+    'campuslifeapp',
+    'Researchapp'
 ]
 
 MIDDLEWARE = [

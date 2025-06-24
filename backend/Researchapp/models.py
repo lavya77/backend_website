@@ -5,7 +5,7 @@ class coe_heroection(models.Model):
     description=models.TextField()
     background_color=models.CharField(max_length=100)
 
-    def __str__:
+    def __str__(self):
         return self.title
 
 class ResearchHighlight(models.Model):
@@ -16,7 +16,6 @@ class ResearchHighlight(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.description}"
-
 
 class ResearchLab(models.Model):
     title = models.CharField(max_length=255)
@@ -41,7 +40,7 @@ class ResearchLab(models.Model):
 class publications_herosection(models.Model):
     title=models.CharField(max_length=100)
     description=models.TextField()
-    def __str__:
+    def __str__(self):
         return self.title
 class Highlights(models.Model):
     values= models.CharField(max_length=100, help_text="e.g., 20+")
@@ -67,7 +66,7 @@ class publications(models.Model):
     indexing=models.CharField(max_length=255)
     quartile=models.CharField(max_length=255)
     
-    def __str__:
+    def __str__(self):
         return self.card_title
 
 class Startups_highlights(models.Model):
@@ -77,12 +76,12 @@ class Startups_highlights(models.Model):
     icon = models.CharField(max_length=50, null=True, blank=True, help_text="Optional: icon class if needed")
 
     def __str__(self):
-        return f"{self.title} - {self.description}"     
+        return self.title  
 
 class Startups(models.Model):
     title=models.CharField(max_length=100)
     description=models.TextField()
-    card_title=modesl.CharField()
+    card_title=models.CharField()
     card_description=models.TextField()
     card_icon=models.CharField(max_length=200)
     background_color=models.CharField(max_length=255)
@@ -95,7 +94,7 @@ class Startups(models.Model):
 class join_startups(models.Model):
     title=models.CharField(max_length=200)
     description=models.TextField()
-    values= models.CharField(max_length=100, help_text="e.g 1 , 2 ,3"))
+    values= models.CharField(max_length=100, help_text="e.g 1 , 2 ,3")
     stats_title= models.CharField(max_length=100,)
     stats_description = models.CharField(max_length=50, null=True, blank=True)
     icon_color = models.CharField(max_length=20, help_text="Hex or Tailwind color name, e.g., 'blue', 'green'")
@@ -103,3 +102,33 @@ class join_startups(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.description}"     
+
+class funded_project(models.Model):
+    title=models.CharField(max_length=255)
+    description=models.TextField()
+
+    def __str__(self):
+        return self.title
+
+class funded_stats(models.Model):
+    values= models.CharField(max_length=100, help_text="e.g., 20+")
+    title= models.CharField(max_length=100)
+    color = models.CharField(max_length=20, help_text="Hex or Tailwind color name, e.g., 'blue', 'green'")
+    icon = models.CharField(max_length=50, null=True, blank=True, help_text="Optional: icon class if needed")
+
+    def __str__(self):
+        return self.title
+
+class funded_project_card(models.Model):
+    card_title=models.CharField(max_length=255)
+    school_tag=models.CharField(max_length=255,help_text="engeineering or biotechnology")
+    card_description=models.TextField()
+    principal=models.CharField(max_length=255)
+    funding_agency=models.CharField(max_length=255)
+    amount=models.CharField(max_length=255,help_text="45.2 lakhs")
+    duration=models.CharField(max_length=255,help_text="3 years(2022-2025)")
+    status=models.CharField(max_length=255)
+    category=models.CharField(max_length=255)
+
+    def __str__(self):
+        return f'{self.card_title}-{self.school_tag}'
