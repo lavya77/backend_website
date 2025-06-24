@@ -27,6 +27,7 @@ urlpatterns = [
     path("landing/", include("landing_pageapp.urls")),
     path("academic/", include("academicapp.urls")),
     path('admin/', admin.site.urls),
-    path('aboutus/',include("aboutapp.urls"))
+    path('aboutus/',include("aboutapp.urls")),
+    path('admission/',include("admissionapp.urls")),
   
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

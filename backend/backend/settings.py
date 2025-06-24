@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'aboutapp',
     'academicapp',
-    'site_confugirations'
+    'site_confugirations',
+    'admissionapp',
+    'placementapp',
+    'campuslifeapp'
 ]
 
 MIDDLEWARE = [
