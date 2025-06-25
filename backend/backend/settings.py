@@ -45,10 +45,12 @@ INSTALLED_APPS = [
     'admissionapp',
     'placementapp',
     'campuslifeapp',
-    'Researchapp'
+    'Researchapp',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
+      'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,14 +58,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://meow.tilchattaas.com",
+    "https://gbu-website.vercel.app",
+    "http://localhost:5173/",
+]
 
 ROOT_URLCONF = 'backend.urls'
 
