@@ -6,7 +6,7 @@ class contact_herosection(models.Model):
     description=models.TextField()
     background_color=models.CharField(max_length=255, blank=True)
     background_image=models.ImageField(upload_to='contact_directory/',blank=True)
-    gradient_color=models.CharField(max_length=255,blank=True)
+    gradient_color=models.CharField(max_length=255,blank=True,help_text="Enter a CSS gradient e.g., 'linear-gradient(to right, #ff7e5f, #feb47b)'")
 
 class Contact(models.Model):
     # Basic Info
