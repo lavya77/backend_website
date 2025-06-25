@@ -123,7 +123,6 @@ class Student_club(models.Model):
 
 
 class Activity(models.Model):
-    Student_club = models.ForeignKey (Student_club, on_delete=models.CASCADE, related_name='activities')
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -133,7 +132,7 @@ class Activity(models.Model):
 
 
 class Achievement(models.Model):
-    Student_club = models.ForeignKey( Student_club, on_delete=models.CASCADE, related_name='achievements')
+    Student = models.ForeignKey( Student_club, on_delete=models.CASCADE, related_name='achievements')
     title = models.CharField(max_length=200)
     description = models.TextField()
     icon = models.CharField(max_length=50, default='🏆')
