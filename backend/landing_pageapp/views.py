@@ -1,55 +1,47 @@
-from django.shortcuts import render, redirect
 from rest_framework import viewsets
-from .models import QuickAccess , About , Leadership , Banner , GlanceStat ,Campus_gallery ,Excellence_in_Education , Campus_life , Companies_hiring , VirtualExperience
-from django.http import JsonResponse
+from .models import *
+from .serializers import *
 
-def Banner_views(request):
-    queryset = list(Banner.objects.all().values())
+class BannerViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Banner.objects.all()
+    serializer_class = BannerSerializer
 
-    return JsonResponse(queryset,safe=False)
-       
+class QuickAccessViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = QuickAccess.objects.all()
+    serializer_class = QuickAccessSerializer
 
-def QuickAccess_views(request):
-    queryset = list(QuickAccess.objects.all().values())
+class AboutViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = About.objects.all()
+    serializer_class = AboutSerializer
 
-    return JsonResponse(queryset,safe=False)
-       
+class LeadershipViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Leadership.objects.all()
+    serializer_class = LeadershipSerializer
 
-def About_view(request):
-    queryset = list(About.objects.all().values())
+class GlanceStatViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = GlanceStat.objects.all()
+    serializer_class = GlanceStatSerializer
 
-    return JsonResponse(queryset,safe=False)
+class CampusGalleryViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Campus_gallery.objects.all()
+    serializer_class = CampusGallerySerializer
 
-def Leadership_view(request):
-    queryset = list(Le.objects.all().values())
+class ExcellenceInEducationViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Excellence_in_Education.objects.all()
+    serializer_class = ExcellenceInEducationSerializer
 
-    return JsonResponse(queryset,safe=False)    
+class CampusLifeViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Campus_life.objects.all()
+    serializer_class = CampusLifeSerializer
 
-def GlanceStat_views(request):
-    queryset = list(GlanceStat.objects.all().values())
+class CompaniesHiringViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Companies_hiring.objects.all()
+    serializer_class = CompaniesHiringSerializer
 
-    return JsonResponse(queryset,safe=False)
+class VirtualExperienceViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = VirtualExperience.objects.all()
+    serializer_class = VirtualExperienceSerializer
 
-def Campus_gallery_views(request):
-    queryset=list(NewsandEvents.objects.all().values)
-    return JsonResponse(queryset,safe=False)
-
-def Excellence_in_Education_views(request):
-    queryset=list(NewsandEvents.objects.all().values)
-    return JsonResponse(queryset,safe=False)
-
-def Campus_life_views(request):
-    queryset=list(NewsandEvents.objects.all().values)
-    return JsonResponse(queryset,safe=False)
-
-def Companies_hiring_views(request):
-    queryset=list(NewsandEvents.objects.all().values)
-    return JsonResponse(queryset,safe=False)
-
-def VirtualExperience_views(request):
-    queryset=list(NewsandEvents.objects.all().values)
-    return JsonResponse(queryset,safe=False)                
-
-        
-       
-
+class NewsAndEventsViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = NewsandEvents.objects.all()
+    serializer_class = NewsAndEventsSerializer
