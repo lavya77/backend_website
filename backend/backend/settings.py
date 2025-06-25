@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'admissionapp',
     'placementapp',
     'campuslifeapp',
-    'Researchapp'
+    'Researchapp',
+    'Aluminiapp'
 ]
 
 MIDDLEWARE = [

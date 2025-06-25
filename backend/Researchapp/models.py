@@ -58,7 +58,7 @@ class publications(models.Model):
     journals=models.CharField(max_length=255)
     year=models.PositiveIntegerField()
     Type=models.CharField(max_length=255)
-    impact_factor=models.DecimalField(max_digits=5, decimal_places=5)
+    impact_factor=models.FloatField(default=0.0)
     citations=models.PositiveIntegerField() 
     scopus_id=models.CharField(max_length=255)
     doi=models.CharField(max_length=255)
