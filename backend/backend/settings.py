@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'campuslifeapp',
     'Researchapp',
     'rest_framework',
-    'Aluminiapp'
+    'Aluminiapp',
+    'faculty_directory',
 ]
 
 MIDDLEWARE = [
