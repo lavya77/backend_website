@@ -29,6 +29,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('aboutus/',include("aboutapp.urls")),
     path('admission/',include("admissionapp.urls")),
-    path('resarch/',include("Researchapp.urls"))
+    path('resarch/',include("Researchapp.urls")),
+    path('alumini/',include("Aluminiapp.urls")),
+    path('placement/',include("placementapp.urls")),
+    path('cmapuslife/',include("campuslifeapp.urls"))
   
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

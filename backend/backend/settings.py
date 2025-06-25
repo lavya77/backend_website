@@ -46,7 +46,11 @@ INSTALLED_APPS = [
     'placementapp',
     'campuslifeapp',
     'Researchapp',
+<<<<<<< HEAD
     'rest_framework',
+=======
+    'Aluminiapp'
+>>>>>>> 894be0484b3277ec05318081abbf15bb6a42da10
 ]
 
 MIDDLEWARE = [
