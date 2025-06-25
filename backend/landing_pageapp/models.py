@@ -88,9 +88,14 @@ class Campus_gallery(models.Model):
 
 
 class Excellence_in_Education(models.Model):
+    category_choices=[
+        {'centre of excellence',"Centers OF EXcellence"},
+        ("Research Labs","Researc Labs"),
+        ("infrastructure","Infrastructure")
+    ]
     title = models.CharField(max_length=100)
     content_text = models.TextField()
-    category = models.CharField(max_length=50)
+    category = models.CharField(max_length=50,choices=category_choices)
     image = models.ImageField(upload_to='realtedimg/')
 
     def __str__(self):
