@@ -2,7 +2,7 @@
 from django.db import models
 
 class Banner(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     content = models.TextField()
     video = models.FileField(upload_to='videos/') 
     button1_text = models.CharField(max_length=100, null=True)
@@ -15,7 +15,7 @@ class Banner(models.Model):
 
 
 class QuickAccess(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     card_title = models.CharField(max_length=100)
     card_description = models.CharField(max_length=255, null=True)
     icon = models.CharField(max_length=50)
@@ -38,7 +38,7 @@ class About(models.Model):
 
 
 class Leadership(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=200)
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     message = models.TextField()
@@ -49,7 +49,7 @@ class Leadership(models.Model):
 
 
 class GlanceStat(models.Model):
-    label = models.CharField(max_length=100)
+    label = models.CharField(max_length=200)
     student_count = models.CharField(max_length=50, null=True)
     programs_count = models.CharField(max_length=50, null=True)
     faculty_member = models.CharField(max_length=50, null=True)
@@ -63,7 +63,7 @@ class GlanceStat(models.Model):
 
 
 class NewsandEvents(models.Model):
-    title = models.CharField(max_length=20)
+    title = models.CharField(max_length=200)
     date = models.DateTimeField()
     content_text = models.TextField()
     category = models.CharField(max_length=50, choices=[
@@ -79,7 +79,7 @@ class NewsandEvents(models.Model):
 
 class Campus_gallery(models.Model):
     image = models.ImageField(upload_to='campusimg/')
-    text = models.CharField(max_length=20)
+    text = models.CharField(max_length=200)
     button1_text = models.CharField(max_length=50)
     button1_url = models.URLField()
 
@@ -93,7 +93,7 @@ class Excellence_in_Education(models.Model):
         ("Research Labs","Researc Labs"),
         ("infrastructure","Infrastructure")
     ]
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     content_text = models.TextField()
     category = models.CharField(max_length=50,choices=category_choices)
     image = models.ImageField(upload_to='realtedimg/')
@@ -103,7 +103,7 @@ class Excellence_in_Education(models.Model):
 
 
 class Campus_life(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=200)
     description = models.TextField(null=True)
     image = models.ImageField(upload_to='realtedimg/')
     card_content = models.TextField(null=True)
@@ -115,7 +115,7 @@ class Campus_life(models.Model):
 
 
 class Companies_hiring(models.Model):
-    title = models.CharField(max_length=20)
+    title = models.CharField(max_length=200)
     logo = models.ImageField(upload_to='companies/')
     content_text = models.TextField()
     Companies_hiring = models.CharField(max_length=50, null=True)
