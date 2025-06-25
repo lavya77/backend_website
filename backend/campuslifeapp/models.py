@@ -104,7 +104,7 @@ class Amenity(models.Model):
     
     class Meta:
         ordering = ['order', 'name']
-        verbose_name_plural = "Amenities"
+        verbose_name_plural = "Hostel Amenities"
 
 class Student_club(models.Model):
     name = models.CharField(max_length=200)
@@ -129,6 +129,8 @@ class Activity(models.Model):
     
     def __str__(self):
         return self.title
+    class Meta:
+        verbose_name_plural = 'Student club Activites'    
 
 
 class Achievement(models.Model):
@@ -208,6 +210,8 @@ class FacilityFeature(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = 'sports facility'   
 
 class FoodCourtCategory(models.Model):
     title = models.CharField(max_length=100)
@@ -249,10 +253,12 @@ class FoodOutlet(models.Model):
 
 class Tag(models.Model):
     outlet = models.ForeignKey(FoodOutlet, on_delete=models.CASCADE, related_name='tags')
-    name = models.CharField(max_length=50)  # Popular, Multi-Cuisine, Study Friendly, etc.
+    name = models.CharField(max_length=50,help_text='Popular, Multi-Cuisine, Study Friendly, etc.')  
     
     def __str__(self):
         return f"{self.outlet.name} - {self.name}"
+    class Meta:
+        verbose_name_plural = 'Food tag'   
 
 
 class EcoCampusStat(models.Model):
