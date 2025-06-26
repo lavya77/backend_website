@@ -134,6 +134,7 @@ class Facultydirectory(models.Model):
         return self.title
 
 class FacultyMember(models.Model):
+    
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     department = models.CharField(max_length=100)
@@ -144,8 +145,8 @@ class FacultyMember(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=20)
     image = models.ImageField(upload_to='faculty/')
-    icon_class = models.CharField(max_length=50)
-    background_color = models.CharField(max_length=50)
+    icon_class = models.CharField(max_length=50),null=True,blank=True
+    background_color = models.CharField(max_length=50,null=True,blank=True)
     faculty_url = models.URLField()
 
     class Rank(models.TextChoices):
