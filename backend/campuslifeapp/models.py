@@ -134,7 +134,7 @@ class Activity(models.Model):
 
 
 class Achievement(models.Model):
-    Student_club = models.ForeignKey( Student_club, on_delete=models.CASCADE, related_name='achievements')
+    club_name = models.ForeignKey( Student_club, on_delete=models.CASCADE, related_name='achievements')
     title = models.CharField(max_length=200)
     description = models.TextField()
     icon = models.CharField(max_length=50, default='🏆')
