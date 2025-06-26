@@ -68,8 +68,8 @@ class NewsandEvents(models.Model):
     content_text = models.TextField()
     category = models.CharField(max_length=50, choices=[
         ('Latest News', 'Latest News'),
-        ('Notices/Circular', 'Notices'),
-        ('Upcoming Events', 'Academic Events')
+        ('Notices/Circular', 'Notices/Circular'),
+        ('Upcoming Events', 'Upcoming Events')
     ])
     url = models.URLField(blank=True, null=True)
 
