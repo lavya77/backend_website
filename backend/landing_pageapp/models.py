@@ -43,6 +43,7 @@ class Leadership(models.Model):
     designation = models.CharField(max_length=100)
     message = models.TextField()
     photo = models.ImageField(upload_to='leadership/')
+    url=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.name
@@ -68,8 +69,8 @@ class NewsandEvents(models.Model):
     content_text = models.TextField()
     category = models.CharField(max_length=50, choices=[
         ('Latest News', 'Latest News'),
-        ('latest Notices', 'Notices'),
-        ('Academic Events', 'Academic Events')
+        ('Notices/Circular', 'Notices'),
+        ('Upcoming Events', 'Academic Events')
     ])
     url = models.URLField(blank=True, null=True)
 
