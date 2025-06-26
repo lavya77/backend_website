@@ -43,7 +43,7 @@ class Leadership(models.Model):
     designation = models.CharField(max_length=100)
     message = models.TextField()
     photo = models.ImageField(upload_to='leadership/')
-    url=models.CharField(max_length=255,null=True,blank=True)
+    url=models.CharField(max_length=255,null=True)
 
     def __str__(self):
         return self.name
