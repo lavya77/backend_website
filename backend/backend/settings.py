@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'Researchapp',
     'rest_framework',
     'Aluminiapp',
-    'faculty_directory',
+    'contact_directory',
     'Schoolapp'
 ]
 
