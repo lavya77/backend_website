@@ -132,16 +132,16 @@ class Activity(models.Model):
     class Meta:
         verbose_name_plural = 'Student club Activites'    
 
-
 class Achievement(models.Model):
-    Student_club= models.ForeignKey(Student_club, on_delete=models.CASCADE, related_name='achievements')
+    Student_club = models.ForeignKey('Student_club', on_delete=models.CASCADE, related_name='achievements')
     title = models.CharField(max_length=200)
     description = models.TextField()
     icon = models.CharField(max_length=50, default='🏆')
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return self.title
+
     class Meta:
         verbose_name_plural = 'Student club Achieveents' 
 
