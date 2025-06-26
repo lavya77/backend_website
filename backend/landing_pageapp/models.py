@@ -48,7 +48,6 @@ class Leadership(models.Model):
     def __str__(self):
         return self.name
 
-
 class GlanceStat(models.Model):
     label = models.CharField(max_length=200)
     student_count = models.CharField(max_length=50, null=True)
@@ -90,9 +89,9 @@ class Campus_gallery(models.Model):
 
 class Excellence_in_Education(models.Model):
     category_choices=[
-        {'centre of excellence',"Centers OF EXcellence"},
+        {'Centre Of Excellence',"Centers OF EXcellence"},
         ("Research Labs","Researc Labs"),
-        ("infrastructure","Infrastructure")
+        ("Infrastructure","Infrastructure")
     ]
     title = models.CharField(max_length=200)
     content_text = models.TextField()
