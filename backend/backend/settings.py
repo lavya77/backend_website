@@ -71,6 +71,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://meow.tilchattaas.com",
     "https://gbu-website.vercel.app",
     "http://localhost:5173/",
+    "http://10.10.16.89:5173",
 ]
 
 ROOT_URLCONF = 'backend.urls'
