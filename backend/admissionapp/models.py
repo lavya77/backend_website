@@ -94,7 +94,7 @@ class courses_coursesoffered(models.Model):
     eligibility=models.CharField(max_length=255)
     Highlights=models.TextField()
 
-    def __str__(slef):
+    def __str__(self):
         return self.card_title
 
 class ready_to_apply_coussesoffered(models.Model):
