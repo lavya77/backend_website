@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'Aluminiapp',
     'contact_directory',
-    'Schoolapp'
+    'Schoolapp',
+    'facultyDirectory',
+    'Bookingapp'
 ]
 
 MIDDLEWARE = [
