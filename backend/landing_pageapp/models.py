@@ -15,11 +15,10 @@ class Banner(models.Model):
 
 
 class QuickAccess(models.Model):
-    title = models.CharField(max_length=200)
     card_title = models.CharField(max_length=100)
     card_description = models.CharField(max_length=255, null=True)
-    icon = models.CharField(max_length=50)
-    url = models.URLField(blank=True, null=True)
+    icon = models.CharField(max_length=255,null=True,blank=True)
+    url=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.card_title
@@ -42,6 +41,7 @@ class Leadership(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     message = models.TextField()
+    url=models.CharField(max_length=255,null=True,blank=True)
     photo = models.ImageField(upload_to='leadership/')
     
 
@@ -72,6 +72,8 @@ class NewsandEvents(models.Model):
         ('Upcoming Events', 'Upcoming Events')
     ])
     url = models.URLField(blank=True, null=True)
+    button1_text=models.CharField(max_length=255,null=True,blank=True)
+    button1_url=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title

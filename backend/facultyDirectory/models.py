@@ -270,3 +270,8 @@ class ResearchAssistant(models.Model):
 
     def __str__(self):
         return self.title or ""
+
+class publications(models.Model):
+    title=models.CharField(max_length=255,null=True,blank=True)
+    name=models.CharField(max_length=255,null=True,blank=True)
+    

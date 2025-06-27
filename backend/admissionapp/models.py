@@ -95,7 +95,7 @@ class courses_coursesoffered(models.Model):
     Highlights=models.TextField()
 
     def __str__(slef):
-        return f"{self.card_title}-{self.graduate_category}"
+        return self.card_title
 
 class ready_to_apply_coussesoffered(models.Model):
     title=models.CharField(max_length=255)
