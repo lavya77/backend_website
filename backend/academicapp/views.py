@@ -1,115 +1,159 @@
-from django.http import JsonResponse
+from rest_framework import viewsets
 from .models import *
+from .serializers import *
 
-# Academic Section
-def academic_hero_section_view(request):
-    data = list(academicherosection.objects.all().values())
-    return JsonResponse(data, safe=False)
+class academicherosection_RegulationsViewSet(viewsets.ModelViewSet):
+    queryset = academicherosection_Regulations.objects.all()
+    serializer_class = academicherosection_RegulationsSerializer
 
-def academic_events_view(request):
-    data = list(AcademicEvent.objects.all().values())
-    return JsonResponse(data, safe=False)
+class acdemic_regulations_statsViewSet(viewsets.ModelViewSet):
+    queryset = acdemic_regulations_stats.objects.all()
+    serializer_class = acdemic_regulations_statsSerializer
 
-def academic_regulations_view(request):
-    data = list(AcademicRegulation.objects.all().values())
-    return JsonResponse(data, safe=False)
+class academic_schedule_regulatioonsViewSet(viewsets.ModelViewSet):
+    queryset = academic_schedule_regulatioons.objects.all()
+    serializer_class = academic_schedule_regulatioonsSerializer
 
-def academic_stay_updated_view(request):
-    data = list(academic_Stayupdated.objects.all().values())
-    return JsonResponse(data, safe=False)
+class AcademicEventViewSet(viewsets.ModelViewSet):
+    queryset = AcademicEvent.objects.all()
+    serializer_class = AcademicEventSerializer
 
+class AcademicRegulationViewSet(viewsets.ModelViewSet):
+    queryset = AcademicRegulation.objects.all()
+    serializer_class = AcademicRegulationSerializer
 
-# CBCS Section
-def hero_section_cbcs_view(request):
-    data = list(herosection_cbcs.objects.all().values())
-    return JsonResponse(data, safe=False)
+class academic_StayupdatedViewSet(viewsets.ModelViewSet):
+    queryset = academic_Stayupdated.objects.all()
+    serializer_class = academic_StayupdatedSerializer
 
-def what_is_cbcs_view(request):
-    data = list(what_is_cbcs.objects.all().values())
-    return JsonResponse(data, safe=False)
+class herosection_cbcsViewSet(viewsets.ModelViewSet):
+    queryset = herosection_cbcs.objects.all()
+    serializer_class = herosection_cbcsSerializer
 
-def cbcs_courses_view(request):
-    data = list(cbcs_courses.objects.all().values())
-    return JsonResponse(data, safe=False)
+class cbcs_statsViewSet(viewsets.ModelViewSet):
+    queryset = cbcs_stats.objects.all()
+    serializer_class = cbcs_statsSerializer
 
-def cbcs_grading_scale_view(request):
-    data = list(cbcs_GradingScale.objects.all().values())
-    return JsonResponse(data, safe=False)
+class what_is_cbcsViewSet(viewsets.ModelViewSet):
+    queryset = what_is_cbcs.objects.all()
+    serializer_class = what_is_cbcsSerializer
 
-def benefits_cbcs_view(request):
-    data = list(benefits_cbcbs.objects.all().values())
-    return JsonResponse(data, safe=False)
+class what_is_cbcs_cardsViewSet(viewsets.ModelViewSet):
+    queryset = what_is_cbcs_cards.objects.all()
+    serializer_class = what_is_cbcs_cardsSerializer
 
-def explore_cbcs_view(request):
-    data = list(Explore_cbcs.objects.all().values())
-    return JsonResponse(data, safe=False)
+class cbcs_GradingScaleViewSet(viewsets.ModelViewSet):
+    queryset = cbcs_GradingScale.objects.all()
+    serializer_class = cbcs_GradingScaleSerializer
 
+class benefits_cbcbs_titleViewSet(viewsets.ModelViewSet):
+    queryset = benefits_cbcbs_title.objects.all()
+    serializer_class = benefits_cbcbs_titleSerializer
 
-# Faculty Section
-def faculty_directory_view(request):
-    data = list(Facultydirectory.objects.all().values())
-    return JsonResponse(data, safe=False)
+class benefits_cbcbsViewSet(viewsets.ModelViewSet):
+    queryset = benefits_cbcbs.objects.all()
+    serializer_class = benefits_cbcbsSerializer
 
-def faculty_members_view(request):
-    data = list(FacultyMember.objects.all().values())
-    return JsonResponse(data, safe=False)
+class Explore_cbcsViewSet(viewsets.ModelViewSet):
+    queryset = Explore_cbcs.objects.all()
+    serializer_class = Explore_cbcsSerializer
 
-def faculty_join_view(request):
-    data = list(faculty_join.objects.all().values())
-    return JsonResponse(data, safe=False)
+class faculty_directory_herosectionViewSet(viewsets.ModelViewSet):
+    queryset = faculty_directory_herosection.objects.all()
+    serializer_class = faculty_directory_herosectionSerializer
 
+class Facultydirectory_statsViewSet(viewsets.ModelViewSet):
+    queryset = Facultydirectory_stats.objects.all()
+    serializer_class = Facultydirectory_statsSerializer
 
-# Centre of Excellence
-def hero_section_coe_view(request):
-    data = list(herosection_centereofexcellence.objects.all().values())
-    return JsonResponse(data, safe=False)
+class FacultyMemberViewSet(viewsets.ModelViewSet):
+    queryset = FacultyMember.objects.all()
+    serializer_class = FacultyMemberSerializer
 
-def coe_view(request):
-    data = list(CenterOfExcellence.objects.all().values())
-    return JsonResponse(data, safe=False)
+class faculty_joinViewSet(viewsets.ModelViewSet):
+    queryset = faculty_join.objects.all()
+    serializer_class = faculty_joinSerializer
 
-def coe_gallery_view(request):
-    data = list(coe_gallery.objects.all().values())
-    return JsonResponse(data, safe=False)
+class herosection_centereofexcellenceViewSet(viewsets.ModelViewSet):
+    queryset = herosection_centereofexcellence.objects.all()
+    serializer_class = herosection_centereofexcellenceSerializer
 
-def join_coe_view(request):
-    data = list(join_coe.objects.all().values())
-    return JsonResponse(data, safe=False)
+class centre_of_excellence_highlightsViewSet(viewsets.ModelViewSet):
+    queryset = centre_of_excellence_highlights.objects.all()
+    serializer_class = centre_of_excellence_highlightsSerializer
 
+class centre_of_excellence_titleViewSet(viewsets.ModelViewSet):
+    queryset = centre_of_excellence_title.objects.all()
+    serializer_class = centre_of_excellence_titleSerializer
 
-# MOU & Collaborations
-def hero_section_mou_view(request):
-    data = list(herosection_mou.objects.all().values())
-    return JsonResponse(data, safe=False)
+class CenterOfExcellenceViewSet(viewsets.ModelViewSet):
+    queryset = CenterOfExcellence.objects.all()
+    serializer_class = CenterOfExcellenceSerializer
 
-def partner_institutes_view(request):
-    data = list(PartnerInstitute.objects.all().values())
-    return JsonResponse(data, safe=False)
+class coe_gallery_titleViewSet(viewsets.ModelViewSet):
+    queryset = coe_gallery_title.objects.all()
+    serializer_class = coe_gallery_titleSerializer
 
-def collaboration_programs_view(request):
-    data = list(CollaborationProgram.objects.all().values())
-    return JsonResponse(data, safe=False)
+class coe_galleryViewSet(viewsets.ModelViewSet):
+    queryset = coe_gallery.objects.all()
+    serializer_class = coe_gallerySerializer
 
-def upcoming_opportunities_view(request):
-    data = list(UpcomingOpportunity.objects.all().values())
-    return JsonResponse(data, safe=False)
+class join_coeViewSet(viewsets.ModelViewSet):
+    queryset = join_coe.objects.all()
+    serializer_class = join_coeSerializer
 
-def collaborations_mou_view(request):
-    data = list(collaborations_mou.objects.all().values())
-    return JsonResponse(data, safe=False)
+class herosection_mouViewSet(viewsets.ModelViewSet):
+    queryset = herosection_mou.objects.all()
+    serializer_class = herosection_mouSerializer
 
+class mous_statsViewSet(viewsets.ModelViewSet):
+    queryset = mous_stats.objects.all()
+    serializer_class = mous_statsSerializer
 
-# Institutional Reports
-def hero_section_reports_view(request):
-    data = list(herosection_reports.objects.all().values())
-    return JsonResponse(data, safe=False)
+class PartnerInstituteViewSet(viewsets.ModelViewSet):
+    queryset = PartnerInstitute.objects.all()
+    serializer_class = PartnerInstituteSerializer
 
-def institutional_reports_view(request):
-    data = list(InstitutionalReport.objects.all().values())
-    return JsonResponse(data, safe=False)
+class CollaborationProgramViewSet(viewsets.ModelViewSet):
+    queryset = CollaborationProgram.objects.all()
+    serializer_class = CollaborationProgramSerializer
 
+class UpcomingOpportunityViewSet(viewsets.ModelViewSet):
+    queryset = UpcomingOpportunity.objects.all()
+    serializer_class = UpcomingOpportunitySerializer
 
-# Schools
-def schools_view(request):
-    data = list(School.objects.all().values())
-    return JsonResponse(data, safe=False)
+class collaborations_mouViewSet(viewsets.ModelViewSet):
+    queryset = collaborations_mou.objects.all()
+    serializer_class = collaborations_mouSerializer
+
+class herosection_reportsViewSet(viewsets.ModelViewSet):
+    queryset = herosection_reports.objects.all()
+    serializer_class = herosection_reportsSerializer
+
+class institutional_reports_statsViewSet(viewsets.ModelViewSet):
+    queryset = institutional_reports_stats.objects.all()
+    serializer_class = institutional_reports_statsSerializer
+
+class InstitutionalReportViewSet(viewsets.ModelViewSet):
+    queryset = InstitutionalReport.objects.all()
+    serializer_class = InstitutionalReportSerializer
+
+class School_herosectionViewSet(viewsets.ModelViewSet):
+    queryset = School_herosection.objects.all()
+    serializer_class = School_herosectionSerializer
+
+class school_statsViewSet(viewsets.ModelViewSet):
+    queryset = school_stats.objects.all()
+    serializer_class = school_statsSerializer
+
+class technology_schoolsViewSet(viewsets.ModelViewSet):
+    queryset = technology_schools.objects.all()
+    serializer_class = technology_schoolsSerializer
+
+class explore_academic_excellence_schoolsViewSet(viewsets.ModelViewSet):
+    queryset = explore_academic_excellence_schools.objects.all()
+    serializer_class = explore_academic_excellence_schoolsSerializer
+
+class school_journeyViewSet(viewsets.ModelViewSet):
+    queryset = school_journey.objects.all()
+    serializer_class = school_journeySerializer

@@ -1,34 +1,34 @@
 from django.contrib import admin
-from .models import (
-    HeroSectionAboutUs,
-    AboutUsCard,
-    ChancellorHeroSection,
-    ChancellorMessage,
-    ViceChancellorHeroSection,
-    ViceChancellorMessage,
-    KnowViceChancellor,
-    GovernanceHeroSection,
-    GovernanceCard,
-    PoliciesHeroSection,
-    UniversityPolicy,
-    RTI,
-    MandatoryHeroSection,
-    MandatoryBodySection,
-    RegulatoryCompliance,
-)
+from .models import *
 
+# -------------- Simple registrations --------------
 admin.site.register(HeroSectionAboutUs)
-admin.site.register(AboutUsCard)
+admin.site.register(Aboutus_Stats)
+admin.site.register(aboutus_gbu)
+admin.site.register(about_us_cards)
+admin.site.register(Governance_organizatonal_highlights)
+admin.site.register(Academic_school_programs_stats)
+admin.site.register(facilities_infrastructure_highlights)
+admin.site.register(Hostel_resedential_life)
+admin.site.register(WMeditation_ellness_Feature)
+admin.site.register(Meditation_wellnes_center)
+admin.site.register(Green_eco_friendly_campus_highlights)
+admin.site.register(sports_reaction_features)
+admin.site.register(Sports_Reaction_highlights)
+admin.site.register(Research_innovation_highlights)
+admin.site.register(student_life_community_highlights)
+admin.site.register(aboutus_joingbu)
 admin.site.register(ChancellorHeroSection)
 admin.site.register(ChancellorMessage)
 admin.site.register(ViceChancellorHeroSection)
 admin.site.register(ViceChancellorMessage)
-admin.site.register(KnowViceChancellor)
+admin.site.register(Governance_committee_highlights)
 admin.site.register(GovernanceHeroSection)
-admin.site.register(GovernanceCard)
+admin.site.register(Governance_organizational_structure)
 admin.site.register(PoliciesHeroSection)
 admin.site.register(UniversityPolicy)
-admin.site.register(RTI)
 admin.site.register(MandatoryHeroSection)
-admin.site.register(MandatoryBodySection)
-admin.site.register(RegulatoryCompliance)
+admin.site.register(Mandatory_compliance_dashboard)
+admin.site.register(Mandatory_compliance_items)
+admin.site.register(Mandatory_compliance_information_available)
+admin.site.register(Regulatory_compliance_highlights)

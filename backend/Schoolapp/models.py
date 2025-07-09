@@ -220,7 +220,7 @@ class Faculty_profile(models.Model):
     email = models.EmailField(unique=True)
     phone_number=models.CharField(max_length=255,null=True,blank=True)
     profile_image=models.ImageField(upload_to='faculty_image',null=True,blank=True)
-    department=models.ForeignKey(Departments_name, on on_delete=models.CASCADE)
+    department=models.ForeignKey(Departments_name, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -286,7 +286,7 @@ class Departments_herosection(models.Model):
 
     def __str__(self):
         return self.title
-class deprtment_herosection_skills(model.Model):
+class deprtment_herosection_skills(models.Model):
     icon=models.CharField(max_length=255,null=True,blank=True)
     skill=models.CharField(max_length=255,null=True,blank=True)
     description=models.TextField(null=True)
@@ -310,7 +310,7 @@ class department_statistics(models.Model):
 
     def __str__(self):
         return self.label      
-class Academic_programs_department(model.Model):
+class Academic_programs_department(models.Model):
     program_name=models.CharField(max_length=255,null=True,blank=True)
     description=models.TextField(null=True)
     number_of_students=models.CharField(max_length=255,null=True,blank=True)
@@ -328,7 +328,7 @@ class Curriculum_department(models.Model):
 
     def __str__(self):
         return self.title
-class Research_excellence_departments(model.Model):
+class Research_excellence_departments(models.Model):
     title=models.CharField(max_length=255,null=True,blank=True)
     icon=models.CharField(max_length=255,null=True,blank=True)
     description=models.TextField(null=True)
