@@ -1,39 +1,48 @@
-from django.contrib import admin
-from django.urls import path
-from admissionapp import views as admissionview
+from rest_framework.routers import DefaultRouter
+from django.urls import path, include
+from . import views
 
-urlpatterns = [
-    # Admission & Process
-    path('admission-process/', admissionview.admission_process_view),
-    path('step-process/', admissionview.step_process_view),
-    path('important-dates/', admissionview.important_dates_view),
-    path('required-documents/', admissionview.required_documents_view),
-    path('action-buttons/', admissionview.action_buttons_view),
+router = DefaultRouter()
 
-    # Courses Offered
-    path('courses-offered/', admissionview.courses_offered_view),
-    path('stats-courses-offered/', admissionview.stats_courses_offered_view),
-    path('schools-courses-offered/', admissionview.schools_courses_offered_view),
-    path('courses-list/', admissionview.courses_list_view),
-    path('apply-courses/', admissionview.apply_courses_view),
+# Admissions Process
+router.register(r'admission-process-hero', views.AdmissionProcessHeroSectionViewSet)
+router.register(r'step-process', views.StepProcessViewSet)
+router.register(r'important-dates', views.ImportantDateViewSet)
+router.register(r'required-documents', views.RequiredDocumentViewSet)
+router.register(r'action-buttons', views.ActionButtonViewSet)
 
-    # Eligibility & Reservation
-    path('eligibility-reservation/', admissionview.eligibility_reservation_view),
-    path('programs-eligibility/', admissionview.programs_eligibility_view),
+# Courses Offered
+router.register(r'courses-offered-hero', views.CoursesOfferedHeroSectionViewSet)
+router.register(r'stats-courses-offered', views.StatsCoursesOfferedViewSet)
+router.register(r'school-course-offered', views.SchoolCourseOfferedViewSet)
+router.register(r'schools-courses-offered', views.SchoolsCoursesOfferedViewSet)
+router.register(r'courses-courses-offered', views.CoursesCoursesOfferedViewSet)
+router.register(r'ready-to-apply-courses-offered', views.ReadyToApplyCoursesOfferedViewSet)
 
-    # Fee Structure
-    path('fee-structure-overview/', admissionview.fee_structure_overview_view),
-    path('program-fee-structure/', admissionview.program_fee_structure_view),
+# Eligibility & Reservation
+router.register(r'eligibility-hero', views.EligibilityReservationHeroSectionViewSet)
+router.register(r'programs-eligibility', views.ProgramsEligibilityViewSet)
 
-    # International Admissions
-    path('international-admissions/', admissionview.international_admissions_view),
-    path('stats-international/', admissionview.stats_international_view),
-    path('admission-tabs/', admissionview.admission_tabs_view),
-    path('international-eligibility/', admissionview.eligibility_requirements_international_view),
-    path('international-documents/', admissionview.required_documents_international_view),
-    path('international-application-steps/', admissionview.application_steps_international_view),
-    path('international-fee-structure/', admissionview.international_fee_structure_view),
-    path('international-scholarships/', admissionview.international_scholarships_view),
-    path('international-support-services/', admissionview.student_support_services_view),
-    path('international-contact-offices/', admissionview.international_contact_offices_view),
-]
+# Fee Structure
+router.register(r'fee-structure', views.FeeStructureViewSet)
+router.register(r'fee-structure-section', views.FeeStructureSectionViewSet)
+router.register(r'program-fee-structure', views.ProgramFeeStructureViewSet)
+router.register(r'fee-payments-option', views.FeePaymentsOptionViewSet)
+router.register(r'scholarship-fee', views.ScholarshipFeeViewSet)
+router.register(r'prospectus-fee', views.ProspectusFeeViewSet)
+
+# International Admissions
+router.register(r'international-hero', views.InternationalAdmissionsHeroSectionViewSet)
+router.register(r'stats-international', views.StatsInternationalViewSet)
+router.register(r'admission-tab-international', views.AdmissionTabInternationalViewSet)
+router.register(r'eligibility-requirement-international', views.EligibilityRequirementInternationalViewSet)
+router.register(r'required-document-international', views.RequiredDocumentInternationalViewSet)
+router.register(r'application-step-international', views.ApplicationStepInternationalViewSet)
+router.register(r'fee-structure-international', views.FeeStructureInternationalAdmissionsViewSet)
+router.register(r'scholarship-international', views.ScholarshipInternationalViewSet)
+router.register(r'student-support-international', views.StudentSupportServiceInternationalViewSet)
+router.register(r'contact-office-international', views.ContactOfficeInternationalAdmissionsViewSet)
+router.register(r'ready-to-apply-international', views.ReadyToApplyInternationalAdmissionsViewSet)
+
+urlpatterns = router.urls
+

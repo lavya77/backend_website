@@ -1,31 +1,35 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
-from .models import (
-    admission_process, step_process, ImportantDate, RequiredDocument, ActionButton,
-    Courses_offered, stats_coursesoffered, schools_coursesoffered, courses_coursesoffered,
-    ready_to_apply_coussesoffered, eligibility_rservation, programs_eligibility,
-    Fee_structure, Program_Feestructure, international_admissions, stats_international,
-    AdmissionTab_international, EligibilityRequirement_interanational, RequiredDocument_international,
-    ApplicationStep_international, FeeStructure_internationaladdmisions,
-    Scholarship_international, StudentSupportService_international, ContactOffice_ainternationaldmissions
-)
-
-admin.site.register(admission_process)
+# ---------- Admission Process ----------
+admin.site.register(admission_process_herosection)
 admin.site.register(step_process)
 admin.site.register(ImportantDate)
 admin.site.register(RequiredDocument)
 admin.site.register(ActionButton)
-admin.site.register(Courses_offered)
+
+# ---------- Courses Offered ----------
+admin.site.register(Courses_offered_herosection)
 admin.site.register(stats_coursesoffered)
+admin.site.register(School_course_offered)
 admin.site.register(schools_coursesoffered)
 admin.site.register(courses_coursesoffered)
 admin.site.register(ready_to_apply_coussesoffered)
-admin.site.register(eligibility_rservation)
+
+# ---------- Eligibility & Reservation ----------
+admin.site.register(eligibility_rservation_herosection)
 admin.site.register(programs_eligibility)
+
+# ---------- Fee Structure ----------
 admin.site.register(Fee_structure)
+admin.site.register(Fee_structure_section)
 admin.site.register(Program_Feestructure)
-admin.site.register(international_admissions)
+admin.site.register(Fee_Payments_option)
+admin.site.register(Scholarship_feee)
+admin.site.register(prospectus_fee)
+
+# ---------- International Admissions ----------
+admin.site.register(international_admissions_herosection)
 admin.site.register(stats_international)
 admin.site.register(AdmissionTab_international)
 admin.site.register(EligibilityRequirement_interanational)
@@ -35,3 +39,4 @@ admin.site.register(FeeStructure_internationaladdmisions)
 admin.site.register(Scholarship_international)
 admin.site.register(StudentSupportService_international)
 admin.site.register(ContactOffice_ainternationaldmissions)
+admin.site.register(Ready_toAplly_internationaladmissions)
