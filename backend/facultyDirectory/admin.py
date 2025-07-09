@@ -1,3 +1,57 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+# Automatically register all models
+models = [
+    ResearchArea,
+    FacultyDirectory,
+    SummaryDashboard,
+    AboutOverview,
+    OverviewResearch,
+    OverviewQuickLink,
+    EducationalQualification,
+    ProfessionalExperienceQualification,
+    Teaching,
+    CourseCode,
+    CoursesTaughtTeaching,
+    LectureSlideTeaching,
+    TeachingStat,
+    AdministrationRole,
+    CommitteeMembershipAdministration,
+    AdministrativeImpact,
+    ResearchCollaborator,
+    ResearchProject,
+    ResearchStat,
+    ResearchGroupOverviewStat,
+    ResearchGroupOverviewDescription,
+    ResearchCategory,
+    ResearchGroupOverview,
+    ResearchAssistant,
+    publications,
+    publication_satistics,
+    patent_portfolio_stats,
+    patent_portfolio_description,
+    Patent_application,
+    Patent_filing_timeline,
+    Professional_certifications_status,
+    Professional_certifications_description,
+    Skilss_Certifications,
+    Certification_portfolio,
+    Professional_Development_certifications,
+    invited_talks_stats,
+    invited_talks_description,
+    Speaking_engagements,
+    speaking_expertise,
+    award_achievements_stats,
+    award_achievements_description,
+    award_recognition,
+    notatble_achievements_award,
+    Awards_timeline,
+    Social_imapcat_stats,
+    Social_impact_description,
+    community_initiative_social,
+    social_impact_summary,
+]
+
+for model in models:
+    admin.site.register(model)

@@ -33,7 +33,8 @@ urlpatterns = [
     path('alumini/',include("Aluminiapp.urls")),
     path('placement/',include("placementapp.urls")),
     path('campuslife/',include("campuslifeapp.urls")),
-    path('faculty_directory',include("contact_directory.urls")),
+    path('contact_directory/',include("contact_directory.urls")),
+    path('Faculty_Directory/',include("facultyDirectory.urls")),
     path('Bookingapp',include("Bookingapp.urls"))
   
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
