@@ -73,9 +73,9 @@ class Hostel(models.Model):
 class HostelDetail(models.Model):
     """Model for detailed hostel view (like International Students Hostel expanded section)"""
     hostel = models.OneToOneField(Hostel, on_delete=models.CASCADE, related_name='detail')
-    title = models.CharField(max_length=200)
-    description = models.TextField()
-    amenities_title = models.CharField(max_length=100, default="Amenities")
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    amenities_title = models.CharField(max_length=100, null=True ,default="Amenities")
     image = models.ImageField(upload_to='hostel_detail_images/')
     
     # Button 1
@@ -107,15 +107,15 @@ class Amenity(models.Model):
         verbose_name_plural = "Hostel Amenities"
 
 class Student_club(models.Model):
-    name = models.CharField(max_length=200)
-    description = models.TextField()
+    name = models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
     president_name = models.CharField(max_length=100)
     member_count = models.PositiveIntegerField(default=0)
     contact_email = models.EmailField()
     cover_image = models.ImageField(upload_to= 'Student_clubs/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    button_text=models.CharField(max_length=255)
-    button_url=models.URLField()
+    button_text=models.CharField(max_length=255,null=True,blank=True)
+    button_url=models.CharField(max_length=255,null=True,blank=True)
     
     
     def __str__(self):
@@ -123,7 +123,7 @@ class Student_club(models.Model):
 
 
 class Activity(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=255,null=True,blank=True)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -134,8 +134,8 @@ class Activity(models.Model):
 
 class Achievement(models.Model):
     Student_club = models.ForeignKey('Student_club', on_delete=models.CASCADE, related_name='achievements')
-    title = models.CharField(max_length=200)
-    description = models.TextField()
+    title =models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
     icon = models.CharField(max_length=50, default='🏆')
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -146,7 +146,7 @@ class Achievement(models.Model):
         verbose_name_plural = 'Student club Achieveents' 
 
 class Library_gbu(models.Model):
-    title=models.CharField(max_length=255)
+    title=models.CharField(max_length=255,null=True,blank=True)
     description=models.TextField()
 
     def __str__(self):
