@@ -2,42 +2,42 @@ from django.db import models
 
 # Create your models here.
 class CampusHero(models.Model):
-    title = models.CharField(max_length=200)
-    description=models.TextField()
-    video_url = models.URLField()
-    button1_text=models.CharField(max_length=255)
-    button2_text=models.CharField(max_length=255)
-    button1_url=models.URLField()
-    button2_url=models.URLField()
-    background_image = models.ImageField(upload_to='campus_hero/')
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description=models.TextField(null=True)
+    video_url = models.CharField(max_length=255,null=True,blank=True)
+    button1_text=models.CharField(max_length=255,null=True,blank=True)
+    button2_text=models.CharField(max_length=255,null=True,blank=True)
+    button1_url=models.CharField(max_length=255,null=True,blank=True)
+    button2_url=models.CharField(max_length=255,null=True,blank=True)
+    background_image = models.ImageField(upload_to='campus_hero/',blank=True,null=True)
 
     def __str__(self):
         return self.title
 class VirtualTour(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    thumbnail = models.ImageField(upload_to='virtual_tours/')
-    video_link = models.URLField()
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    thumbnail = models.ImageField(upload_to='virtual_tours/',null=True,blank=True)
+    video_link = models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
 
 class key_highlights(models.Model):
-    title=models.CharField(max_length=255)
-    description=models.CharField(max_length=255)
-    icon_class=models.CharField(max_length=255)
-    button1_text=models.CharField(max_length=255)
-    button2_text=models.CharField(max_length=255)
-    button1_url=models.URLField()
-    button2_url=models.URLField()
+    title=models.CharField(max_length=255,null=True,blank=True)
+    description=models.CharField(max_length=255,null=True,blank=True)
+    icon_class=models.CharField(max_length=255,null=True,blank=True)
+    button1_text=models.CharField(max_length=255,null=True,blank=True)
+    button2_text=models.CharField(max_length=255,null=True,blank=True)
+    button1_url=models.CharField(max_length=255,null=True,blank=True)
+    button2_url=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
 
 class campus_life_stats(models.Model):
-    title=models.CharField(max_length=255)
-    value=models.CharField(max_length=255)
-    icon_class=models.CharField(max_length=255)
+    title=models.CharField(max_length=255,null=True,blank=True)
+    value=models.CharField(max_length=255,null=True,blank=True)
+    icon_class=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title      
@@ -46,9 +46,9 @@ from django.db import models
 
 
 class HostelLifeSection(models.Model):
-    title = models.CharField(max_length=200, default="Our Hostel Life")
-    description = models.TextField()
-    background_color = models.CharField(max_length=50, blank=True, null=True)
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    background_color = models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
         return self.title
@@ -59,8 +59,8 @@ class HostelLifeSection(models.Model):
 
 class Hostel(models.Model):
     """Model for hostel cards"""
-    name = models.CharField(max_length=100)
-    capacity_text = models.CharField(max_length=100)  # e.g., "500 Students", "200 Research Scholars"
+    name = models.CharField(max_length=255,null=True,blank=True)
+    capacity_text = models.CharField(max_length=255,null=True,blank=True)
     image = models.ImageField(upload_to='hostel_images/')
     
     def __str__(self):
