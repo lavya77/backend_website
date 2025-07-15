@@ -72,7 +72,7 @@ class Hostel(models.Model):
 
 class HostelDetail(models.Model):
     """Model for detailed hostel view (like International Students Hostel expanded section)"""
-    hostel = models.OneToOneField(Hostel, on_delete=models.CASCADE, related_name='detail')
+    hostel = models.ForeignKey(Hostel, on_delete=models.CASCADE, related_name='detail')
     title = models.CharField(max_length=255,null=True,blank=True)
     description = models.TextField(null=True)
     amenities_title = models.CharField(max_length=100, null=True ,default="Amenities")
@@ -80,12 +80,10 @@ class HostelDetail(models.Model):
     
     # Button 1
     button1_text = models.CharField(max_length=50, default="View Details")
-    button1_url = models.URLField(blank=True, null=True)
-    
+    button1_url =models.CharField(max_length=255,null=True,blank=True)
     # Button 2
     button2_text = models.CharField(max_length=50, default="Book Room")
-    button2_url = models.URLField(blank=True, null=True)
-    
+    button2_url = models.CharField(max_length=255,null=True,blank=True)
     def __str__(self):
         return self.title
     
@@ -111,7 +109,7 @@ class Student_club(models.Model):
     description = models.TextField(null=True)
     president_name = models.CharField(max_length=100)
     member_count = models.PositiveIntegerField(default=0)
-    contact_email = models.EmailField()
+    contact_email = models.EmailField(null=True)
     cover_image = models.ImageField(upload_to= 'Student_clubs/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     button_text=models.CharField(max_length=255,null=True,blank=True)
@@ -136,7 +134,7 @@ class Achievement(models.Model):
     Student_club = models.ForeignKey('Student_club', on_delete=models.CASCADE, related_name='achievements')
     title =models.CharField(max_length=255,null=True,blank=True)
     description = models.TextField(null=True)
-    icon = models.CharField(max_length=50, default='🏆')
+    icon =models.CharField(max_length=255,null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -153,15 +151,15 @@ class Library_gbu(models.Model):
         return self.title        
 
 class LibraryStat(models.Model):
-    label = models.CharField(max_length=100)
-    value = models.CharField(max_length=50)
+    label =models.CharField(max_length=255,null=True,blank=True)
+    value =models.CharField(max_length=255,null=True,blank=True)
     icon_class=models.CharField(max_length=255)
 
     def __str__(self):
         return self.label
 class LibraryFacility(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
+    name =models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
     image = models.ImageField(upload_to='library/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -173,9 +171,9 @@ class LibraryFacility(models.Model):
 
 
 class LibraryStats(models.Model):
-    label = models.CharField(max_length=50)  # "Books & Resources", "Study Seats", etc.
-    value = models.CharField(max_length=20)  # "2M+", "500+", "24/7", "100+"
-    color = models.CharField(max_length=20, default='purple')  # purple, blue, etc.
+    label =models.CharField(max_length=255,null=True,blank=True)Books & Resources", "Study Seats", etc.
+    value =models.CharField(max_length=255,null=True,blank=True)
+    color =models.CharField(max_length=255,null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
@@ -186,15 +184,15 @@ class LibraryStats(models.Model):
 
 class SportsFacility(models.Model):
     """Sports Facilities"""
-    name = models.CharField(max_length=100)
-    facility_type = models.CharField(max_length=50)
-    location = models.CharField(max_length=200)
-    capacity = models.CharField(max_length=50)
-    access = models.CharField(max_length=100)
-    timings = models.CharField(max_length=100)
-    contact = models.CharField(max_length=100)
-    booking = models.TextField()
-    description = models.TextField()
+    name =models.CharField(max_length=255,null=True,blank=True)
+    facility_type =models.CharField(max_length=255,null=True,blank=True)
+    location =models.CharField(max_length=255,null=True,blank=True)
+    capacity = models.CharField(max_length=255,null=True,blank=True)
+    access = models.CharField(max_length=255,null=True,blank=True)
+    timings =models.CharField(max_length=255,null=True,blank=True)
+    contact =models.CharField(max_length=255,null=True,blank=True)
+    booking = models.TextField(null=True)
+    description = models.TextField(null=True)
     image = models.ImageField(upload_to='facilities/', blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -208,7 +206,7 @@ class SportsFacility(models.Model):
 class FacilityFeature(models.Model):
     """Facility Features & Amenities"""
     facility = models.ForeignKey(SportsFacility, on_delete=models.CASCADE, related_name='features')
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=255,null=True,blank=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -217,8 +215,8 @@ class FacilityFeature(models.Model):
         verbose_name_plural = 'sports facility'   
 
 class FoodCourtCategory(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
+    title =models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
     image = models.ImageField(upload_to='campus_dining/',blank=True)
     
 
@@ -226,17 +224,17 @@ class FoodCourtCategory(models.Model):
         return self.title
 
 class FoodCourtItem(models.Model):
-    name = models.CharField(max_length=100)
-    icon_class = models.CharField(max_length=100)
+    name = models.CharField(max_length=255,null=True,blank=True)
+    icon_class = models.CharField(max_length=255,null=True,blank=True)
     image = models.ImageField(upload_to='food_courts/',blank=True)
 
     def __str__(self):
         return self.name
 class FoodOutlet(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    location = models.CharField(max_length=100)
-    price_range = models.CharField(max_length=20)  # e.g., "₹50 - ₹200"
+    name =models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    location =models.CharField(max_length=255,null=True,blank=True)
+    price_range = models.CharField(max_length=255,null=True,blank=True)
     opening_time = models.TimeField()
     closing_time = models.TimeField()
     rating = models.DecimalField(max_digits=2, decimal_places=1)
@@ -244,10 +242,10 @@ class FoodOutlet(models.Model):
     is_open = models.BooleanField(default=True)
     image = models.ImageField(upload_to='outlets/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    button1_text=models.CharField(max_length=255)
-    button1_url=models.URLField()
-    button2_text=models.CharField(max_length=255)
-    button2_url=models.URLField()
+    button1_text=models.CharField(max_length=255,null=True,blank=True)
+    button1_url=models.CharField(max_length=255,null=True,blank=True)
+    button2_text=models.CharField(max_length=255,null=True,blank=True)
+    button2_url=models.CharField(max_length=255,null=True,blank=True)
 
     
     def __str__(self):
@@ -256,7 +254,7 @@ class FoodOutlet(models.Model):
 
 class Tag(models.Model):
     outlet = models.ForeignKey(FoodOutlet, on_delete=models.CASCADE, related_name='tags')
-    name = models.CharField(max_length=50,help_text='Popular, Multi-Cuisine, Study Friendly, etc.')  
+    name = models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
         return f"{self.outlet.name} - {self.name}"
@@ -265,8 +263,8 @@ class Tag(models.Model):
 
 
 class EcoCampusStat(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
+    title =models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
     
 
     def __str__(self):
@@ -276,20 +274,20 @@ class EcoCampusStat(models.Model):
 
 
 class EcoInitiative_stats(models.Model):
-    title = models.CharField(max_length=150)
-    value = models.CharField(max_length=20)
-    icon_class=models.CharField(max_length=255)
+    title =models.CharField(max_length=255,null=True,blank=True)
+    value =models.CharField(max_length=255,null=True,blank=True)
+    icon_class=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
 
 class GreenInitiative(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    impact_value = models.CharField(max_length=50)  # e.g., "80%", "50,000L", "90%", "50+"
-    impact_label = models.CharField(max_length=100)  # e.g., "Renewable Energy", "Daily Collection"
-    impact_type = models.CharField(max_length=50)  # "Impact Measurement"
-    icon_color = models.CharField(max_length=20, default='orange')  # orange, blue, green
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    impact_value =models.CharField(max_length=255,null=True,blank=True)
+    impact_label =models.CharField(max_length=255,null=True,blank=True)
+    impact_type =models.CharField(max_length=255,null=True,blank=True)
+    icon_color = models.CharField(max_length=255,null=True,blank=True)
     image = models.ImageField(upload_to='initiatives/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
@@ -298,39 +296,38 @@ class GreenInitiative(models.Model):
 
 
 class ImpactStat(models.Model):
-    icon = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
-    description=models.CharField(max_length=255)
+    icon = models.CharField(max_length=255,null=True,blank=True)
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
 class StudentTestimonial(models.Model):
-    name = models.CharField(max_length=100)
-    course = models.CharField(max_length=100)
-    testimonial = models.TextField()
-    year=models.CharField(max_length=255,help_text="final year or second year")
+    name = models.CharField(max_length=255,null=True,blank=True)
+    course =models.CharField(max_length=255,null=True,blank=True)
+    testimonial = models.TextField(null=True)
+    year=models.CharField(max_length=255,null=True,blank=True)
     image = models.ImageField(upload_to='student_testimonials/', blank=True, null=True)
 
     def __str__(self):
         return self.name
 
 class Meditation_herosection(models.Model):
-    icon_class=models.CharField(max_length=255)
-    title=models.CharField(max_length=255)
-    description = models.TextField()
-    background_color = models.CharField(max_length=200) 
+    icon_class=models.CharField(max_length=255,null=True,blank=True)
+    title=models.CharField(max_length=255,null=True)
+    background_color = models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
 
 
 class MeditationSession(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
+    name = models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
     start_time = models.TimeField()
     end_time = models.TimeField()
-    icon_color = models.CharField(max_length=20, default='green')
-    icon_class=models.CharField(max_length=255)
+    icon_color = models.CharField(max_length=255,null=True,blank=True)
+    icon_class=models.CharField(max_length=255,null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
@@ -338,9 +335,9 @@ class MeditationSession(models.Model):
 
 
 class MeditationBenefit(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    color = models.CharField(max_length=20, default='green')  # green, blue, purple
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    color =models.CharField(max_length=255,null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
@@ -348,9 +345,9 @@ class MeditationBenefit(models.Model):
 
 
 class MeditationTechnique(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    color = models.CharField(max_length=20, default='green')  # green, blue, purple, orange
+    name =models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    color = models.CharField(max_length=255,null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
@@ -363,18 +360,18 @@ class Organization(models.Model):
     ]
     
     name = models.CharField(max_length=10, choices=ORGANIZATION_TYPES)
-    full_name = models.CharField(max_length=100)
-    description = models.TextField()
-    icon_color = models.CharField(max_length=20, default='blue')
+    full_name =models.CharField(max_length=255,null=True,blank=True)
+    description = models.TextField(null=True)
+    icon_color =models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
         return self.get_name_display()
 class join_nssandncc(models.Model):
-    title=models.CharField(max_length=255)
-    description=models.TextField()
-    button1_text=models.CharField(max_length=255)
-    button1_url=models.URLField()
-    background_color=models.CharField(max_length=255)
+    title=models.CharField(max_length=255,null=True,blank=True)
+    description=models.TextField(null=True)
+    button1_text=models.CharField(max_length=255,null=True,blank=True)
+    button1_url=models.CharField(max_length=255,null=True,blank=True)
+    background_color=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
