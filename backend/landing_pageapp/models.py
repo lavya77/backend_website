@@ -99,6 +99,7 @@ class Excellence_in_Education(models.Model):
     content_text = models.TextField()
     category = models.CharField(max_length=50,choices=category_choices)
     image = models.ImageField(upload_to='realtedimg/')
+    url=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title

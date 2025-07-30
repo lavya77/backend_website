@@ -35,6 +35,7 @@ urlpatterns = [
     path('campuslife/',include("campuslifeapp.urls")),
     path('contact_directory/',include("contact_directory.urls")),
     path('Faculty_Directory/',include("facultyDirectory.urls")),
-    path('Bookingapp',include("Bookingapp.urls"))
+    path('Bookingapp',include("Bookingapp.urls")),
+    path('Schools',include("Schoolapp.urls")),
   
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -171,7 +171,7 @@ class LibraryFacility(models.Model):
 
 
 class LibraryStats(models.Model):
-    label =models.CharField(max_length=255,null=True,blank=True)Books & Resources", "Study Seats", etc.
+    label =models.CharField(max_length=255,null=True,blank=True)
     value =models.CharField(max_length=255,null=True,blank=True)
     color =models.CharField(max_length=255,null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

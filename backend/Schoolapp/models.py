@@ -1,12 +1,11 @@
 from django.db import models
+from academicapp.models import FacultyMember
 
 # Create your models here.
 class school_ict_herosection(models.Model):
     title=models.CharField(max_length=255,null=True,blank=True)
-    description=models.TextField(null=True)
-    background_color=models.CharField(max_length=255,null=True,blank=True)
-    background_image=models.ImageField(upload_to="school_image/",null=True,blank=True,default='default/default.jpg')
-    gradient=models.CharField(max_length=255,null=True,blank=True)
+    sub_title=models.CharField(max_length=255,null=True,blank=True)
+    bgTheme=models.PositiveIntegerField(null=True,blank=True)
 
     def __str__(self):
         return self.title
@@ -22,12 +21,16 @@ class school_aboutus(models.Model):
     def __str__(self):
         return self.title
 class stats_spaeak_for_themsleves(models.Model):
-    value=models.CharField(max_length=255,null=True,blank=True)
-    label=models.CharField(max_length=255,null=True,blank=True)
-    color1=models.CharField(max_length=255,null=True,blank=True)
+    key=models.PositiveIntegerField(null=True,blank=True)
+    icon=models.CharField(max_length=255,null=True,blank=True)
+    number=models.PositiveIntegerField(null=True,blank=True)
+    numberText=models.CharField(max_length=255,null=True,blank=True)
+    title=models.CharField(max_length=255,null=True,blank=True)
+    subtitle=models.CharField(max_length=255,null=True,blank=True)
+    iconColor=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
-        return self.label
+        return self.key
 
 class dean_message(models.Model):
     image=models.ImageField(upload_to='dean_image/',null=True,blank=True)
@@ -114,6 +117,7 @@ class student_clubs_activities(models.Model):
     faculty_advisor=models.CharField(max_length=255,null=True,blank=True)
     members=models.CharField(max_length=255,null=True,blank=True)
     image=models.ImageField(upload_to='clubs_images/',null=True,blank=True)
+    logo=models.CharField(max_length=255,blank=True,null=True)
     type_club=models.CharField(max_length=255,null=True,blank=True,choices=type_choice)
     icon1=models.CharField(max_length=255,null=True,blank=True)
     icon2=models.CharField(max_length=255,null=True,blank=True)
@@ -126,18 +130,21 @@ class student_clubs_activities(models.Model):
         return self.title
 
 class Placement_stats(models.Model):
-    background_color=models.CharField(max_length=255,null=True,blank=True)
-    value=models.CharField(max_length=255,null=True,blank=True)
-    label=models.CharField(max_length=255,null=True,blank=True)
-    
+    key=models.PositiveIntegerField(null=True,blank=True)
+    icon=models.CharField(max_length=255,null=True,blank=True)
+    number=models.PositiveIntegerField(null=True,blank=True)
+    numberText=models.CharField(max_length=255,null=True,blank=True)
+    title=models.CharField(max_length=255,null=True,blank=True)
+    subtitle=models.CharField(max_length=255,null=True,blank=True)
+    iconColor=models.CharField(max_length=255,null=True,blank=True)
+
     def __str__(self):
         return self.label
-class Placement_herosection_image(models.Model):
-    image=models.ImageField(upload_to='placement/',null=True,blank=True)
 
     def __str__(self):
         return self.image
 class Recent_placement(models.Model):
+    image=models.ImageField(upload_to='recent_placements/',blank=True,null=True)
     name=models.CharField(max_length=255,null=True,blank=True)
     course=models.CharField(max_length=255,null=True,blank=True)
     package=models.CharField(max_length=255,null=True,blank=True)
@@ -154,9 +161,14 @@ class Recruiterss(models.Model):
         return self.name
 
 class startup_stats(models.Model):
-    value=models.CharField(max_length=255,null=True,blank=True)
-    color=models.CharField(max_length=255,null=True,blank=True)
-    label=models.CharField(max_length=255,null=True,blank=True)
+    key=models.PositiveIntegerField(null=True,blank=True)
+    icon=models.CharField(max_length=255,null=True,blank=True)
+    number=models.PositiveIntegerField(null=True,blank=True)
+    numberText=models.CharField(max_length=255,null=True,blank=True)
+    title=models.CharField(max_length=255,null=True,blank=True)
+    subtitle=models.CharField(max_length=255,null=True,blank=True)
+    iconColor=models.CharField(max_length=255,null=True,blank=True)
+
 
     def __str__(self):
         return self.label 
@@ -211,19 +223,10 @@ class faculty_department_herosection(models.Model):
         return self.title
 
 class Faculty_profile(models.Model):
-    name=models.CharField(max_length=255,null=True,blank=True)
-    designation=models.CharField(max_length=255,null=True,blank=True)
-    specializations=models.ManyToManyField(Specialization)
-    year_experience=models.CharField(max_length=255,null=True,blank=True)
-    publications=models.CharField(max_length=255,null=True,blank=True)
-    education=models.CharField(max_length=255,null=True,blank=True)
-    email = models.EmailField(unique=True)
-    phone_number=models.CharField(max_length=255,null=True,blank=True)
-    profile_image=models.ImageField(upload_to='faculty_image',null=True,blank=True)
-    department=models.ForeignKey(Departments_name, on_delete=models.CASCADE)
+    faculty=models.ForeignKey(FacultyMember,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.faculty.name
 
 class Board_studies(models.Model):
     designation_choice=[
@@ -274,23 +277,6 @@ class conference_activity(models.Model):
     def __str__(self):
         return self.title
 
-class Departments_herosection(models.Model):
-    background_color=models.CharField(max_length=255,null=True,blank=True)
-    background_image=models.ImageField(upload_to="schoool_department/",null=True,blank=True)
-    title=models.CharField(max_length=255,null=True,blank=True)
-    description=models.CharField(max_length=255,null=True,blank=True)
-    button1_text=models.CharField(max_length=255,null=True,blank=True)
-    button2_text=models.CharField(max_length=255,null=True,blank=True)
-    button1_url=models.CharField(max_length=255,null=True,blank=True)
-    button2_url=models.CharField(max_length=255,null=True,blank=True)
-
-    def __str__(self):
-        return self.title
-class deprtment_herosection_skills(models.Model):
-    icon=models.CharField(max_length=255,null=True,blank=True)
-    skill=models.CharField(max_length=255,null=True,blank=True)
-    description=models.TextField(null=True)
-
     def __str__(self):
         return self.skill
 
@@ -304,12 +290,16 @@ class department_hod_message(models.Model):
         return self.name
 
 class department_statistics(models.Model):
+    key=models.PositiveIntegerField(null=True,blank=True)
     icon=models.CharField(max_length=255,null=True,blank=True)
-    value=models.CharField(max_length=255,null=True,blank=True)
-    label=models.CharField(max_length=255,null=True,blank=True)
+    number=models.PositiveIntegerField(null=True,blank=True)
+    numberText=models.CharField(max_length=255,null=True,blank=True)
+    title=models.CharField(max_length=255,null=True,blank=True)
+    subtitle=models.CharField(max_length=255,null=True,blank=True)
+    iconColor=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
-        return self.label      
+        return self.key    
 class Academic_programs_department(models.Model):
     program_name=models.CharField(max_length=255,null=True,blank=True)
     description=models.TextField(null=True)

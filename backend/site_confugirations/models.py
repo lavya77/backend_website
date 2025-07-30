@@ -22,5 +22,10 @@ class Footer(models.Model):
     icon_class=models.CharField(max_length=255,null=True)
     icon_url=models.URLField()
 
+class Banner(models.Model):
+    bgTheme=models.PositiveIntegerField(null=True,blank=True)
+
+    def __str__(self):
+        return self.title
 
 

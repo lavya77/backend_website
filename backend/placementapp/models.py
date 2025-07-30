@@ -2,52 +2,53 @@ from django.db import models
 
 # Create your models here.
 class PlacementBrochure(models.Model):
-    title = models.CharField(max_length=255)
-    description=models.CharField(max_length=255)
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description=models.TextField(null=True)
     file = models.FileField(upload_to='placement_brochures/')
 
     def __str__(self):
         return self.title
 
 class stats(models.Model):
-    icon_class = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
-    value = models.CharField(max_length=50)
+    icon_class = models.CharField(max_length=255,null=True,blank=True)
+    title = models.CharField(max_length=255,null=True,blank=True)
+    value =models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
 
 class What_inside(models.Model):
-    card_title=models.CharField(max_length=255)
-    description=models.TextField()
-    background_color=models.CharField(max_length=255)
-    icon_clas=models.CharField(max_length=255)
+    card_title=models.CharField(max_length=255,null=True,blank=True)
+    description=models.TextField(null=True)
+    background_color=models.CharField(max_length=255,null=True,blank=True)
+    icon_clas=models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
         return self.card_title
 
 class BrochureSectionItem(models.Model):
-    text = models.CharField(max_length=200)
-    year=models.CharField(max_length=255,help_text="2024-2025")
-    gradient_background = models.CharField( max_length=255,help_text="Enter a CSS gradient e.g., 'linear-gradient(to right, #ff7e5f, #feb47b)'")
-    card_title=models.CharField(max_length=255,help_text="Ready to expore?")
-    card_description=models.TextField()
-    button_text=models.CharField(max_length=255,help_text="Download full brochure")
-    button_url=models.URLField()
+    text =models.CharField(max_length=255,null=True,blank=True)
+    year=models.CharField(max_length=255,null=True,blank=True)
+    gradient_background = models.CharField(max_length=255,null=True,blank=True)
+    card_title=models.CharField(max_length=255,null=True,blank=True)
+    card_description=models.TextField(null=True)
+    button_text=models.CharField(max_length=255,null=True,blank=True)
+    button_url=models.CharField(max_length=255,null=True,blank=True)
     
     def __str__(self):
         return self.text
 
 class InternshipOpportunity(models.Model):
-    title = models.CharField(max_length=150)
-    description=models.CharField(max_length=255)
-    button_text=models.CharField(max_length=255,help_text="apply for internship")
-    url=models.URLField()
+    title = models.CharField(max_length=255,null=True,blank=True)
+    description=models.TextField(null=True)
+    button_text=models.CharField(max_length=255,null=True,blank=True)
+    url=models.CharField(max_length=255,null=True,blank=True)
 
     def __str__(self):
         return self.title
+        
 class companies(models.Model):
-    name=models.CharField(max_length=255)
+    name=models.CharField(max_length=255,null=True,blank=True)
     category=models.CharField(max_length=255,blank=True,null=True)
 
     def __str__(self):
@@ -69,7 +70,7 @@ class internship_cards(models.Model):
         ('top_performers', 'Top Performers'),
     ]
     program_type=models.CharField(max_length=255, choices=program_choices,unique=20)
-    description=models.TextField()
+    description=models.TextField(null=True)
     durations=models.CharField(max_length=255, help_text="8-12 weeks")
     stipened=models.CharField(max_length=255)
     eligibility=models.CharField(max_length=255,choices=eligibility_choices)
@@ -77,8 +78,8 @@ class internship_cards(models.Model):
     application_deadlne=models.CharField(max_length=255, help_text="March 31, 2024")
     button1_text=models.CharField(max_length=255,help_text='Apply now')
     button2_text=models.CharField(max_length=255,help_text="Learn More")
-    button1_url=models.URLField()
-    button2_url=models.URLField()
+    button1_url=models.CharField(max_length=255,null=True,blank=True)
+    button2_url=models.CharField(max_length=255,null=True,blank=True)
     icon_backgroundcolor=models.CharField(max_length=255)
     icon_clas=models.CharField(max_length=255)
 
